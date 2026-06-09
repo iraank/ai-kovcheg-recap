@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Іра Анк × AI-Ковчег — 8 тижнів, що змінили мислення</title>
+<meta name="description" content="Фінальний виступ на курсі AI-Ковчег. Чесна мапа того, чого Іра Анк навчилася за вісім тижнів — від користувачки ChatGPT до двох власних AI-асистентів, живих продуктів і нового мислення.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A140F;
+    --bg-2:#0C1A13;
+    --bg-3:#0E211896;
+    --emerald-deep:#0F3D2E;
+    --emerald:#1B5E43;
+    --emerald-bright:#2E8B6B;
+    --gold:#D4AF6A;
+    --gold-bright:#E9CC86;
+    --gold-soft:#C8A86040;
+    --cream:#EFE7D6;
+    --cream-dim:#D8CFBE;
+    --sage:#9DB0A4;
+    --line:rgba(212,175,106,.16);
+    --line-soft:rgba(212,175,106,.09);
+    --maxw:1180px;
+    --serif:'Playfair Display',Georgia,serif;
+    --sans:'Manrope',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+  /* atmosphere */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(60% 50% at 18% 0%, rgba(27,94,67,.42), transparent 60%),
+      radial-gradient(50% 45% at 92% 12%, rgba(46,139,107,.20), transparent 60%),
+      radial-gradient(60% 60% at 80% 95%, rgba(15,61,46,.50), transparent 65%),
+      radial-gradient(40% 40% at 8% 88%, rgba(212,175,106,.07), transparent 60%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  ::selection{background:rgba(212,175,106,.28);color:#fff}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:linear-gradient(180deg, rgba(10,20,15,.86), rgba(10,20,15,.5));
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;font-size:15px}
+  .brand .mark{width:30px;height:30px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:var(--serif);font-size:15px;font-weight:600;flex:none}
+  .brand .x{color:var(--sage);font-weight:400;margin:0 2px}
+  .brand .kov{color:var(--gold-bright)}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:var(--cream-dim);text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.04em;transition:color .25s;position:relative}
+  .nav-links a:hover{color:var(--gold-bright)}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:9px 18px;border-radius:100px;
+    background:var(--gold);color:#10231a;font-weight:700;font-size:13px;text-decoration:none;
+    transition:transform .25s, box-shadow .25s;letter-spacing:.01em;
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(212,175,106,.25)}
+  @media(max-width:860px){.nav-links{display:none}}
+  @media(max-width:520px){
+    .nav-in{padding:13px 18px}
+    .brand{font-size:12.5px;white-space:nowrap}
+    .brand .mark{width:26px;height:26px;font-size:13px}
+    .nav-cta{padding:8px 14px;font-size:11.5px}
+    .wrap{padding:0 18px}
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{position:relative;padding:64px 0 48px;overflow:hidden}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+    font-weight:600;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(20px,2.3vw,29px);
+    line-height:1.2;
+    letter-spacing:-.008em;
+    margin:0;
+    max-width:26ch;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;margin-top:24px}
+  .hero-photo{position:relative;margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.55), inset 0 0 0 1px rgba(212,175,106,.06);background:#0A140F;aspect-ratio:1/1;max-width:440px;width:100%;margin-left:auto}
+  .hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 28%;filter:contrast(1.04) brightness(.95);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .hero-photo:hover img{transform:scale(1.025)}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,15,0) 50%, rgba(10,20,15,.85)); pointer-events:none}
+  .hero-photo figcaption{position:absolute;bottom:14px;left:18px;right:18px;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--cream);line-height:1.4;z-index:1;letter-spacing:.01em}
+  @media(max-width:880px){.hero-photo{max-width:340px;margin:0 auto}}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:30px}}
+  .hero-right{display:flex;justify-content:flex-end}
+  @media(max-width:880px){.hero-right{justify-content:stretch}}
+  /* boarding pass ticket */
+  .ticket{position:relative;width:100%;max-width:430px;border:1px solid rgba(212,175,106,.4);border-radius:18px;background:linear-gradient(155deg,rgba(27,94,67,.6),rgba(10,20,15,.92));padding:24px 26px;box-shadow:0 26px 64px rgba(0,0,0,.55)}
+  .ticket::before{content:"";position:absolute;inset:8px;border:1px solid rgba(212,175,106,.14);border-radius:12px;pointer-events:none}
+  .tk-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;position:relative}
+  .tk-brand{font-family:var(--serif);font-size:19px;color:var(--gold-bright);font-weight:600;letter-spacing:.02em}
+  .tk-tag{font-size:10px;letter-spacing:.18em;color:var(--sage);border:1px solid var(--line);border-radius:100px;padding:4px 10px}
+  .tk-row{display:flex;gap:34px;margin-bottom:16px;position:relative}
+  .tk-lbl{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:5px}
+  .tk-val{font-family:var(--serif);font-size:21px;color:var(--cream);font-weight:600}
+  .tk-route{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--cream-dim);flex-wrap:wrap;line-height:1.3;position:relative}
+  .tk-arrow{color:var(--gold);font-size:15px}
+  .tk-divider{height:1px;margin:18px 0;background-image:linear-gradient(90deg,rgba(212,175,106,.5) 55%,transparent 0);background-size:9px 1px;background-repeat:repeat-x}
+  .tk-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;position:relative}
+  .tk-barcode{height:32px;flex:1;background-image:repeating-linear-gradient(90deg,var(--gold),var(--gold) 2px,transparent 2px,transparent 5px);opacity:.6;border-radius:2px}
+  .tk-status{font-size:11px;letter-spacing:.12em;color:var(--gold-bright);font-weight:700;border:1px solid rgba(212,175,106,.45);border-radius:100px;padding:6px 12px;white-space:nowrap}
+  .hero h1 .gold{color:var(--gold-bright);font-style:italic}
+  .hero h1 .em{color:var(--emerald-bright)}
+  .hero p.lead{
+    margin-top:18px;max-width:58ch;
+    font-size:clamp(14px,1.1vw,15.5px);color:var(--cream-dim);font-weight:400;line-height:1.65;
+  }
+  .hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:13px;
+    padding:11px 20px;border-radius:100px;transition:transform .25s,box-shadow .25s,background .25s,border-color .25s;letter-spacing:.01em;
+  }
+  .btn-gold{background:var(--gold);color:#10231a}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(212,175,106,.28)}
+  .btn-ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright);transform:translateY(-2px)}
+  .btn .arrow{transition:transform .25s}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* tuning-fork / soundwave */
+  .wave{display:flex;align-items:flex-end;gap:5px;height:54px;margin-top:54px;opacity:.9}
+  .wave span{
+    width:4px;border-radius:4px;background:linear-gradient(180deg,var(--gold-bright),rgba(212,175,106,.25));
+    animation:eq 1.8s ease-in-out infinite;
+  }
+  @keyframes eq{0%,100%{height:10px}50%{height:46px}}
+  .wave span:nth-child(1){animation-delay:-.1s;height:14px}
+  .wave span:nth-child(2){animation-delay:-.5s}
+  .wave span:nth-child(3){animation-delay:-.9s}
+  .wave span:nth-child(4){animation-delay:-.3s}
+  .wave span:nth-child(5){animation-delay:-1.2s}
+  .wave span:nth-child(6){animation-delay:-.7s}
+  .wave span:nth-child(7){animation-delay:-1.5s}
+  .wave span:nth-child(8){animation-delay:-.2s}
+  .wave span:nth-child(9){animation-delay:-1.1s}
+  .wave span:nth-child(10){animation-delay:-.6s}
+  .wave span:nth-child(11){animation-delay:-1.4s}
+  .wave span:nth-child(12){animation-delay:-.4s}
+  .wave span:nth-child(13){animation-delay:-1s}
+  .wave span:nth-child(14){animation-delay:-.8s}
+
+  /* stat strip */
+  .stats{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin-top:42px;
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--line-soft);
+  }
+  .stat{padding:16px 14px;background:linear-gradient(180deg,rgba(14,33,24,.7),rgba(10,20,15,.5));text-align:center}
+  .stat .num{font-family:var(--serif);font-size:clamp(20px,2.2vw,28px);color:var(--gold-bright);line-height:1;font-weight:600}
+  .stat .lbl{margin-top:6px;font-size:10.5px;letter-spacing:.06em;color:var(--sage);text-transform:uppercase;font-weight:500}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.stat:last-child{grid-column:1/-1}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative;padding:56px 0;z-index:2}
+  .sec-head{max-width:760px;margin-bottom:34px}
+  .sec-head .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .sec-head h2{
+    font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.8vw,32px);line-height:1.12;margin-top:10px;letter-spacing:-.01em;
+  }
+  .sec-head h2 .it{font-style:italic;color:var(--gold-bright)}
+  .sec-head p{margin-top:12px;color:var(--cream-dim);font-size:14.5px;max-width:62ch;line-height:1.6}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);border:0}
+
+  /* ---------- A → B ---------- */
+  .ab{display:grid;grid-template-columns:1fr auto 1fr;gap:30px;align-items:stretch}
+  .ab-col{border:1px solid var(--line);border-radius:20px;padding:34px;background:linear-gradient(180deg,rgba(14,33,24,.55),rgba(10,20,15,.35))}
+  .ab-col.a{border-color:var(--line-soft)}
+  .ab-col.b{border-color:rgba(212,175,106,.3);background:linear-gradient(180deg,rgba(27,94,67,.30),rgba(14,33,24,.4))}
+  .ab-tag{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+  .ab-col.a .ab-tag{color:var(--sage)}
+  .ab-col.b .ab-tag{color:var(--gold-bright)}
+  .ab-col h3{font-family:var(--serif);font-size:25px;font-weight:600;margin:10px 0 22px;line-height:1.2}
+  .ab-col ul{list-style:none;display:flex;flex-direction:column;gap:15px}
+  .ab-col li{display:flex;gap:12px;font-size:15.5px;line-height:1.55}
+  .ab-col li .ic{flex:none;width:20px;height:20px;margin-top:2px}
+  .ab-col.a li{color:var(--cream-dim)}
+  .ab-arrow{display:grid;place-items:center;color:var(--gold);font-size:34px;align-self:center}
+  @media(max-width:880px){
+    .ab{grid-template-columns:1fr}
+    .ab-arrow{transform:rotate(90deg);padding:4px 0}
+  }
+  .ab-quote{
+    margin-top:40px;text-align:center;font-family:var(--serif);font-style:italic;
+    font-size:clamp(20px,2.6vw,29px);color:var(--cream);line-height:1.42;max-width:34ch;margin-left:auto;margin-right:auto;
+  }
+  .ab-quote b{color:var(--gold-bright);font-weight:600}
+
+  /* ---------- SKILLS ---------- */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .skill{
+    border:1px solid var(--line);border-radius:18px;padding:28px;background:rgba(14,33,24,.4);
+    transition:transform .3s,border-color .3s,background .3s;
+  }
+  .skill:hover{transform:translateY(-5px);border-color:rgba(212,175,106,.4);background:rgba(27,94,67,.22)}
+  .skill .si{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(212,175,106,.12);border:1px solid var(--line);color:var(--gold-bright);margin-bottom:18px}
+  .skill h3{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.2;margin-bottom:10px}
+  .skill p{font-size:14.5px;color:var(--cream-dim);line-height:1.6}
+  @media(max-width:880px){.skills{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.skills{grid-template-columns:1fr}}
+
+  /* ---------- TIMELINE (compact) ---------- */
+  .tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .tlx{
+    display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--cream);
+    border:1px solid var(--line-soft);border-radius:14px;padding:18px;background:rgba(14,33,24,.35);
+    transition:transform .25s,border-color .25s,background .25s;min-height:120px;
+  }
+  .tlx:hover{transform:translateY(-4px);border-color:rgba(212,175,106,.4);background:rgba(27,94,67,.2)}
+  .tlx-n{font-family:var(--serif);font-size:20px;color:var(--gold);line-height:1;font-weight:600;letter-spacing:.04em}
+  .tlx h3{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.16;margin:0;flex:1}
+  .tlx-go{font-size:11.5px;color:var(--sage);letter-spacing:.04em;display:inline-flex;gap:5px;align-items:center;transition:color .25s}
+  .tlx:hover .tlx-go{color:var(--gold-bright)}
+  .tlx-go .arrow{transition:transform .25s}
+  .tlx:hover .tlx-go .arrow{transform:translateX(3px)}
+  @media(max-width:920px){.tl-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.tl-grid{grid-template-columns:1fr}}
+
+  /* ---------- PRODUCTS ---------- */
+  .products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .prod{
+    position:relative;border:1px solid var(--line);border-radius:14px;padding:18px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(14,33,24,.5),rgba(10,20,15,.4));
+    transition:transform .25s,border-color .25s;display:flex;flex-direction:column;min-height:160px;
+  }
+  .prod:hover{transform:translateY(-3px);border-color:rgba(212,175,106,.4)}
+  .prod .ptag{align-self:flex-start;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--gold-bright);border:1px solid var(--line);border-radius:100px;padding:3px 9px;margin-bottom:12px}
+  .prod h3{font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.22;margin-bottom:7px}
+  .prod p{font-size:12.5px;color:var(--cream-dim);line-height:1.55;flex:1}
+  .prod p b{color:var(--cream);font-weight:700}
+  .prod .plink{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:var(--gold);font-weight:600;font-size:11.5px;text-decoration:none;letter-spacing:.02em}
+  .prod .plink:hover{color:var(--gold-bright)}
+  .prod .plink .arrow{transition:transform .25s}
+  .prod .plink:hover .arrow{transform:translateX(3px)}
+  .prod.span2{grid-column:span 2}
+  .prod.span2 h3{font-size:20px}
+  .prod.span2 p{font-size:13.5px}
+  .prod .glow{position:absolute;right:-40px;top:-40px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(46,139,107,.35),transparent 70%);pointer-events:none}
+  @media(max-width:980px){.products{grid-template-columns:repeat(3,1fr)}.prod.span2{grid-column:span 2}}
+  @media(max-width:720px){.products{grid-template-columns:repeat(2,1fr)}.prod.span2{grid-column:span 2}}
+  @media(max-width:480px){.products{grid-template-columns:1fr}.prod.span2{grid-column:auto}.prod.span2 h3{font-size:17px}}
+
+  /* ---------- STACK ---------- */
+  .stack{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .stack-grp{border:1px solid var(--line);border-radius:16px;padding:22px 24px;background:rgba(14,33,24,.35)}
+  .stack-grp .gh{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+  .stack-grp .tools{display:flex;flex-wrap:wrap;gap:9px}
+  .tool{font-size:13.5px;color:var(--cream);border:1px solid var(--line);border-radius:10px;padding:8px 13px;background:rgba(10,20,15,.5);font-weight:500;transition:border-color .25s,color .25s}
+  .tool:hover{border-color:var(--gold);color:var(--gold-bright)}
+  @media(max-width:760px){.stack{grid-template-columns:1fr}}
+
+  /* ---------- HONEST ---------- */
+  .honest{
+    border:1px solid rgba(212,175,106,.2);border-radius:20px;padding:clamp(24px,3vw,38px) clamp(28px,4vw,52px);
+    background:linear-gradient(140deg,rgba(27,94,67,.22),rgba(14,33,24,.4));text-align:center;position:relative;overflow:hidden;
+    max-width:760px;margin:0 auto;
+  }
+  .honest::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 80% at 50% 0%,rgba(212,175,106,.08),transparent 70%);pointer-events:none}
+  .honest .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;opacity:.85}
+  .honest h2{font-family:var(--serif);font-size:clamp(17px,1.6vw,21px);font-weight:600;margin:10px auto 0;line-height:1.35;max-width:44ch;color:var(--cream)}
+  .honest blockquote{
+    font-family:var(--sans);font-style:normal;font-size:clamp(14px,1.3vw,15.5px);color:var(--cream-dim);
+    line-height:1.6;max-width:60ch;margin:10px auto 0;position:relative;z-index:1;font-weight:400;
+  }
+  .honest blockquote em{font-style:italic;color:var(--cream)}
+  .honest blockquote b{color:var(--gold-bright);font-weight:600;font-style:normal}
+
+  /* ---------- AUTHOR / FINAL ---------- */
+  .final{padding-top:30px}
+  .author{
+    display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:center;
+    border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,48px);
+    background:linear-gradient(180deg,rgba(14,33,24,.5),rgba(10,20,15,.4));
+  }
+  .author .photo{
+    width:200px;height:200px;border-radius:20px;overflow:hidden;border:1px solid var(--line);position:relative;
+    box-shadow:0 18px 50px rgba(0,0,0,.45);
+  }
+  .author .photo::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 60px rgba(15,61,46,.5);border-radius:20px}
+  .author .photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.02)}
+  .author .who .nm{font-family:var(--serif);font-size:30px;font-weight:600}
+  .author .who .role{color:var(--gold);font-size:14px;letter-spacing:.06em;margin-top:4px}
+  .author .who .camertone{font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.1vw,23px);color:var(--cream);line-height:1.45;margin-top:20px;max-width:34ch}
+  .author .who .camertone b{color:var(--gold-bright);font-weight:600}
+  .final-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  @media(max-width:680px){.author{grid-template-columns:1fr;justify-items:center;text-align:center}.author .who .camertone{margin-left:auto;margin-right:auto}.final-cta{justify-content:center}}
+
+  .thanks{text-align:center;max-width:62ch;margin:64px auto 0;color:var(--cream-dim);font-size:17px;line-height:1.7}
+  .thanks .hl{color:var(--gold-bright);font-family:var(--serif);font-style:italic}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line-soft);margin-top:80px;padding:38px 0;position:relative;z-index:2}
+  .foot-in{max-width:var(--maxw);margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;color:var(--sage);font-size:13px}
+  .foot-in .l{font-family:var(--serif);color:var(--cream);font-size:15px}
+  .foot-in .l span{color:var(--gold)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.wave span{animation:none;height:24px}}
+
+  /* ---------- ORNAMENT DIVIDER ---------- */
+  .ornament{display:flex;align-items:center;justify-content:center;gap:18px;padding:14px 0;max-width:var(--maxw);margin:0 auto}
+  .ornament .ln{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,106,.45),transparent)}
+  .ornament .di{color:var(--gold);font-size:14px;letter-spacing:.4em;font-family:var(--serif)}
+  .ornament .di .small{opacity:.55;font-size:9px}
+
+  /* ---------- SECTION BACKDROP NUMERAL ---------- */
+  section{overflow:hidden}
+  .sec-num{
+    position:absolute;font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(180px,28vw,360px);line-height:.85;letter-spacing:-.04em;
+    color:transparent;-webkit-text-stroke:1px rgba(212,175,106,.10);
+    top:-30px;right:-20px;pointer-events:none;user-select:none;z-index:1;
+  }
+  .sec-num.left{right:auto;left:-30px}
+  @media(max-width:760px){.sec-num{font-size:200px;opacity:.6}}
+
+  /* ---------- A→B refinement ---------- */
+  .ab-arrow{position:relative}
+  .ab-arrow::before,.ab-arrow::after{content:"";position:absolute;left:50%;width:1px;height:60px;background:linear-gradient(180deg,transparent,rgba(212,175,106,.4));transform:translateX(-50%)}
+  .ab-arrow::before{bottom:100%}
+  .ab-arrow::after{top:100%;background:linear-gradient(0deg,transparent,rgba(212,175,106,.4))}
+  @media(max-width:880px){.ab-arrow::before,.ab-arrow::after{display:none}}
+
+  /* ---------- TICKER ---------- */
+  .ticker{position:relative;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);overflow:hidden;background:linear-gradient(180deg,rgba(15,61,46,.18),rgba(10,20,15,.4));padding:22px 0;margin-top:30px}
+  .ticker-track{display:flex;gap:60px;white-space:nowrap;animation:ticker 38s linear infinite;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,30px);color:var(--cream);font-weight:500}
+  .ticker-track span{display:inline-flex;align-items:center;gap:60px}
+  .ticker-track .dot{color:var(--gold);font-size:14px;opacity:.7}
+  .ticker-track b{color:var(--gold-bright);font-weight:600;font-style:normal}
+  @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+
+  /* ---------- ROUTE MAP TIMELINE ---------- */
+  .route{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0 30px;padding:30px 0 10px}
+  .route::before{
+    content:"";position:absolute;left:6%;right:6%;top:52px;height:2px;
+    background:repeating-linear-gradient(90deg,rgba(212,175,106,.5) 0 8px,transparent 8px 16px);
+    z-index:0;
+  }
+  .stop{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;color:var(--cream);padding:10px 6px 22px;z-index:1;transition:transform .25s}
+  .stop:hover{transform:translateY(-4px)}
+  .stop .pin{
+    width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+    background:linear-gradient(160deg,rgba(27,94,67,.95),rgba(10,20,15,.95));
+    border:1.5px solid var(--gold);color:var(--gold-bright);
+    font-family:var(--serif);font-weight:600;font-size:17px;
+    box-shadow:0 0 0 5px rgba(10,20,15,.9), 0 0 22px rgba(212,175,106,.35);
+    transition:background .25s, color .25s, box-shadow .25s;
+  }
+  .stop:hover .pin{background:var(--gold);color:#10231a;box-shadow:0 0 0 5px rgba(10,20,15,.9),0 0 30px rgba(212,175,106,.6)}
+  .stop h3{font-family:var(--serif);font-size:15.5px;font-weight:600;line-height:1.22;margin-top:14px;max-width:18ch}
+  .stop .ty{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-top:8px;display:inline-flex;gap:5px;align-items:center;transition:color .25s}
+  .stop:hover .ty{color:var(--gold-bright)}
+  @media(max-width:920px){.route{grid-template-columns:repeat(2,1fr);gap:30px}.route::before{display:none}}
+  @media(max-width:480px){.route{grid-template-columns:1fr}}
+
+  /* ---------- PULL QUOTE ---------- */
+  .pullq{
+    position:relative;max-width:760px;margin:60px auto 0;text-align:center;padding:42px 28px;
+    border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
+  }
+  .pullq::before{
+    content:"\201C";position:absolute;top:-22px;left:50%;transform:translateX(-50%);
+    font-family:var(--serif);font-size:96px;line-height:1;color:var(--gold);
+    background:var(--bg);padding:0 18px;
+  }
+  .pullq p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.4vw,28px);line-height:1.45;color:var(--cream)}
+  .pullq p b{color:var(--gold-bright);font-style:normal;font-weight:600}
+  .pullq .att{margin-top:18px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);font-weight:600}
+
+  /* ---------- PRODUCTS upgrade ---------- */
+  .prod::after{
+    content:"";position:absolute;left:0;top:0;height:3px;width:0;
+    background:linear-gradient(90deg,var(--gold),transparent);transition:width .5s ease;
+  }
+  .prod:hover::after{width:100%}
+  .prod.span2{background:linear-gradient(140deg,rgba(27,94,67,.55),rgba(14,33,24,.65));border-color:rgba(212,175,106,.35)}
+  .prod.span2 h3{font-size:30px}
+  .prod.span2 p{font-size:16px}
+
+  /* ---------- STACK upgrade ---------- */
+  .stack-grp{position:relative;overflow:hidden}
+  .stack-grp::before{
+    content:"";position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;border-radius:50%;
+    background:radial-gradient(circle,rgba(212,175,106,.08),transparent 70%);
+  }
+  .stack-grp .gh::before{content:"◆ ";color:var(--gold-bright);font-size:9px;vertical-align:middle;margin-right:6px;opacity:.7}
+
+  /* ---------- HONEST upgrade ---------- */
+  .honest::after{
+    content:"✦";position:absolute;left:50%;bottom:18px;transform:translateX(-50%);
+    color:var(--gold);font-size:22px;opacity:.55;
+  }
+
+  /* ---------- KOVCHEG SCENE (SVG yacht) ---------- */
+  .kovcheg-scene{position:relative;width:100%;max-width:520px;aspect-ratio:1/1;display:block;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg,rgba(15,61,46,.25),rgba(10,20,15,.6));box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .kovcheg-scene svg{width:100%;height:100%;display:block}
+  .kovcheg-scene .orb-caption{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage);font-weight:600;display:inline-flex;align-items:center;gap:9px;white-space:nowrap;z-index:2}
+  .kovcheg-scene .orb-caption::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 10px var(--gold-bright);animation:pulse 2.4s ease-in-out infinite}
+  #boat{transform-origin:center;will-change:transform}
+
+  /* ---------- (legacy CSS orb — приховано) ---------- */
+  .orb-stage{position:relative;width:100%;max-width:460px;aspect-ratio:1/1;display:grid;place-items:center;perspective:1200px}
+  .orb-stage::before{
+    content:"";position:absolute;inset:6%;border-radius:50%;
+    background:radial-gradient(circle at 50% 60%, rgba(15,61,46,.55), transparent 65%);
+    filter:blur(30px);
+  }
+  .orb{
+    position:relative;width:78%;aspect-ratio:1/1;border-radius:50%;
+    background:
+      radial-gradient(circle at 32% 28%, rgba(255,255,255,.55), transparent 28%),
+      radial-gradient(circle at 70% 75%, rgba(212,175,106,.6), transparent 50%),
+      radial-gradient(circle at 50% 50%, #2E8B6B 0%, #1B5E43 45%, #0F3D2E 75%, #08251C 100%);
+    box-shadow:
+      0 30px 80px rgba(0,0,0,.55),
+      0 0 80px rgba(46,139,107,.35),
+      inset 0 -22px 60px rgba(0,0,0,.55),
+      inset 0 22px 60px rgba(212,175,106,.18);
+    transform-style:preserve-3d;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1);
+    will-change:transform;
+  }
+  /* swirl shader-like layer */
+  .orb::before{
+    content:"";position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg, rgba(212,175,106,.0) 0deg, rgba(212,175,106,.35) 70deg, transparent 140deg, rgba(46,139,107,.45) 220deg, transparent 300deg);
+    mix-blend-mode:screen;
+    animation:swirl 14s linear infinite;
+    mask:radial-gradient(circle, transparent 38%, #000 60%, transparent 92%);
+    -webkit-mask:radial-gradient(circle, transparent 38%, #000 60%, transparent 92%);
+  }
+  /* highlight gloss */
+  .orb{--hl-x:18%;--hl-y:14%}
+  .orb::after{
+    content:"";position:absolute;left:var(--hl-x);top:var(--hl-y);width:38%;height:30%;border-radius:50%;
+    background:radial-gradient(ellipse at center, rgba(255,255,255,.5), transparent 70%);
+    filter:blur(8px);
+    transform:rotate(-20deg);
+    transition:left .25s cubic-bezier(.2,.7,.2,1), top .25s cubic-bezier(.2,.7,.2,1);
+    pointer-events:none;
+  }
+  @keyframes swirl{to{transform:rotate(360deg)}}
+
+  /* orbiting ring */
+  .orbit{position:absolute;inset:0;border:1px dashed rgba(212,175,106,.25);border-radius:50%;animation:spin 32s linear infinite}
+  .orbit::after{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 18px var(--gold-bright);transform:translateX(-50%)}
+  .orbit.b{inset:10%;border-color:rgba(46,139,107,.3);animation-duration:22s;animation-direction:reverse}
+  .orbit.b::after{background:var(--emerald-bright);box-shadow:0 0 14px var(--emerald-bright);width:7px;height:7px;top:-3.5px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .orb-caption{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage);font-weight:600;display:inline-flex;align-items:center;gap:9px;white-space:nowrap}
+  .orb-caption::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 10px var(--gold-bright);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+
+  @media(prefers-reduced-motion:reduce){.orb::before,.orbit{animation:none}.orb-caption::before{animation:none}}
+
+  /* ---------- AURORA BACKGROUND (Aceternity port) ---------- */
+  /* Брендова палітра замість блакитно-фіолетової */
+  :root{
+    --transparent:transparent;
+    --aurora-black:#0A140F;
+    --aurora-white:#EFE7D6;
+  }
+  .aurora{
+    position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;
+  }
+  .aurora::before{
+    content:"";position:absolute;inset:-10px;opacity:.55;will-change:transform;
+    /* Темна "решітка" — створює патерн полос */
+    --dark-gradient:repeating-linear-gradient(100deg,
+      var(--aurora-black) 0%, var(--aurora-black) 7%,
+      var(--transparent) 10%, var(--transparent) 12%,
+      var(--aurora-black) 16%);
+    /* Аврора — наша брендова: смарагди + золото + кремовий */
+    --aurora-grad:repeating-linear-gradient(100deg,
+      #1B5E43 10%,
+      #2E8B6B 15%,
+      #0F3D2E 20%,
+      #D4AF6A 25%,
+      #E9CC86 30%,
+      #1B5E43 35%);
+    background-image:var(--dark-gradient),var(--aurora-grad);
+    background-size:300%,200%;
+    background-position:50% 50%,50% 50%;
+    filter:blur(10px);
+    mask-image:radial-gradient(ellipse at 100% 0%, #000 10%, transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse at 100% 0%, #000 10%, transparent 70%);
+  }
+  .aurora::after{
+    content:"";position:absolute;inset:-10px;
+    --dark-gradient:repeating-linear-gradient(100deg,
+      var(--aurora-black) 0%, var(--aurora-black) 7%,
+      var(--transparent) 10%, var(--transparent) 12%,
+      var(--aurora-black) 16%);
+    --aurora-grad:repeating-linear-gradient(100deg,
+      #1B5E43 10%,
+      #2E8B6B 15%,
+      #0F3D2E 20%,
+      #D4AF6A 25%,
+      #E9CC86 30%,
+      #1B5E43 35%);
+    background-image:var(--dark-gradient),var(--aurora-grad);
+    background-size:200%,100%;
+    background-attachment:fixed;
+    mix-blend-mode:difference;
+    filter:blur(10px);
+    animation:aurora 60s linear infinite;
+    mask-image:radial-gradient(ellipse at 100% 0%, #000 10%, transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse at 100% 0%, #000 10%, transparent 70%);
+    opacity:.7;
+  }
+  @keyframes aurora{
+    from{background-position:50% 50%, 50% 50%}
+    to{background-position:350% 50%, 350% 50%}
+  }
+  @media(prefers-reduced-motion:reduce){.aurora::after{animation:none}}
+  /* Hero має z-index контенту вище */
+  header.hero > .wrap{position:relative;z-index:3}
+</style>
+</head>
+<body>
+
+<!-- Neon tubes cursor background -->
+<canvas id="neon-canvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block;pointer-events:none;opacity:.55;mix-blend-mode:screen;"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <div class="brand"><span class="mark">ІА</span> Іра Анк <span class="x">×</span> <span class="kov">AI-Ковчег</span></div>
+    <div class="nav-links">
+      <a href="#skills">Навички</a>
+      <a href="#products">Продукти</a>
+      <a href="#stack">Стек</a>
+    </div>
+    <a href="#products" class="nav-cta">Подивитися продукти</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Квітень — Червень 2026 · 8 тижнів навчання</span>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <h1>Зайшла користувачкою ChatGPT.<br>Вийшла — з <span class="gold">двома AI-асистентами</span> і <span class="gold">новим мисленням</span>.</h1>
+        <p class="lead">Це мій фінальний виступ на курсі <b>AI-Ковчег</b>. Чесна мапа того, чого я навчилася за вісім тижнів — від «сперечалася з чатом» до системи, яка вже працює на мене.</p>
+        <div class="hero-cta">
+          <a href="#products" class="btn btn-gold">Що я побудувала <span class="arrow">→</span></a>
+          <a href="#story" class="btn btn-ghost">Точка А → Точка Б</a>
+        </div>
+        <div class="wave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <figure class="hero-photo reveal">
+          <img src="images/ira-curtains.jpg" alt="Іра Анк відкриває фіранки — метафора розблокування" loading="eager">
+          <figcaption>Новий рівень розблоковано</figcaption>
+        </figure>
+      </div>
+      <div class="hero-right" style="display:none">
+        <div class="kovcheg-scene reveal" id="kovchegScene">
+          <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-label="AI-Ковчег пливе">
+            <defs>
+              <!-- Небо / атмосфера -->
+              <radialGradient id="sky" cx="50%" cy="20%" r="80%">
+                <stop offset="0%" stop-color="#1B5E43" stop-opacity=".55"/>
+                <stop offset="55%" stop-color="#0F3D2E" stop-opacity=".35"/>
+                <stop offset="100%" stop-color="#0A140F" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="goldRay" cx="80%" cy="10%" r="60%">
+                <stop offset="0%" stop-color="#E9CC86" stop-opacity=".25"/>
+                <stop offset="100%" stop-color="#E9CC86" stop-opacity="0"/>
+              </radialGradient>
+              <!-- Вода -->
+              <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0F3D2E"/>
+                <stop offset="60%" stop-color="#0A2419"/>
+                <stop offset="100%" stop-color="#08160F"/>
+              </linearGradient>
+              <linearGradient id="reflect" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#D4AF6A" stop-opacity=".0"/>
+                <stop offset="60%" stop-color="#D4AF6A" stop-opacity=".18"/>
+                <stop offset="100%" stop-color="#D4AF6A" stop-opacity="0"/>
+              </linearGradient>
+              <!-- Корпус яхти -->
+              <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#26443A"/>
+                <stop offset="50%" stop-color="#0F2A20"/>
+                <stop offset="100%" stop-color="#08160F"/>
+              </linearGradient>
+              <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#EFE7D6"/>
+                <stop offset="100%" stop-color="#C8B98F"/>
+              </linearGradient>
+              <linearGradient id="window" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#E9CC86"/>
+                <stop offset="100%" stop-color="#D4AF6A"/>
+              </linearGradient>
+              <!-- Пінний слід -->
+              <radialGradient id="foam" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#EFE7D6" stop-opacity=".9"/>
+                <stop offset="60%" stop-color="#EFE7D6" stop-opacity=".25"/>
+                <stop offset="100%" stop-color="#EFE7D6" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3"/>
+              </filter>
+              <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6"/>
+              </filter>
+            </defs>
+
+            <!-- Фон: атмосфера -->
+            <rect width="520" height="520" fill="url(#sky)"/>
+            <rect width="520" height="520" fill="url(#goldRay)"/>
+
+            <!-- Золоті промені світла зверху -->
+            <g opacity=".4" stroke="#D4AF6A" stroke-width="1" fill="none">
+              <line x1="100" y1="0" x2="180" y2="220"/>
+              <line x1="220" y1="0" x2="260" y2="220" opacity=".5"/>
+              <line x1="400" y1="0" x2="340" y2="220"/>
+              <line x1="480" y1="0" x2="420" y2="220" opacity=".6"/>
+            </g>
+
+            <!-- Зірки / точки -->
+            <g fill="#EFE7D6">
+              <circle cx="60" cy="60" r="1" opacity=".7"/>
+              <circle cx="140" cy="40" r=".8" opacity=".5"/>
+              <circle cx="280" cy="80" r="1.2" opacity=".8"/>
+              <circle cx="380" cy="50" r=".9" opacity=".6"/>
+              <circle cx="460" cy="100" r="1" opacity=".7"/>
+              <circle cx="200" cy="120" r=".7" opacity=".4"/>
+              <circle cx="100" cy="160" r=".8" opacity=".5"/>
+            </g>
+
+            <!-- Дальній горизонт — острівець із смарагдовим сяйвом -->
+            <g opacity=".55">
+              <ellipse cx="440" cy="295" rx="55" ry="6" fill="#1B5E43" filter="url(#softGlow)"/>
+              <ellipse cx="440" cy="293" rx="40" ry="3" fill="#2E8B6B"/>
+            </g>
+            <g opacity=".4">
+              <ellipse cx="90" cy="305" rx="42" ry="5" fill="#1B5E43" filter="url(#softGlow)"/>
+            </g>
+
+            <!-- Лінія горизонту / вода -->
+            <rect x="0" y="300" width="520" height="220" fill="url(#water)"/>
+            <rect x="0" y="300" width="520" height="220" fill="url(#reflect)" opacity=".5"/>
+
+            <!-- Хвилі — анімовані синусоїди -->
+            <g id="waves" stroke="#D4AF6A" stroke-opacity=".18" stroke-width="1" fill="none">
+              <path id="wave1" d="M0,340 Q65,335 130,340 T260,340 T390,340 T520,340"/>
+              <path id="wave2" d="M0,370 Q65,365 130,370 T260,370 T390,370 T520,370" stroke-opacity=".12"/>
+              <path id="wave3" d="M0,410 Q65,405 130,410 T260,410 T390,410 T520,410" stroke-opacity=".09"/>
+              <path id="wave4" d="M0,455 Q65,450 130,455 T260,455 T390,455 T520,455" stroke-opacity=".07"/>
+            </g>
+
+            <!-- Сітка-карта на воді (як на референсі) -->
+            <g stroke="#D4AF6A" stroke-opacity=".07" stroke-width=".5">
+              <line x1="0" y1="380" x2="520" y2="380"/>
+              <line x1="0" y1="430" x2="520" y2="430"/>
+              <line x1="0" y1="480" x2="520" y2="480"/>
+              <line x1="130" y1="320" x2="130" y2="520"/>
+              <line x1="260" y1="320" x2="260" y2="520"/>
+              <line x1="390" y1="320" x2="390" y2="520"/>
+            </g>
+
+            <!-- Пінний слід — частинки, JS їх анімуватиме -->
+            <g id="wake"></g>
+
+            <!-- ЯХТА AI-КОВЧЕГ -->
+            <g id="boat" transform="translate(180 305)">
+              <!-- Тінь під яхтою -->
+              <ellipse cx="80" cy="58" rx="100" ry="6" fill="#000" opacity=".4" filter="url(#glow)"/>
+
+              <!-- Корпус -->
+              <path d="M-5,38 L20,18 L150,18 L172,30 L165,52 L0,52 Z" fill="url(#hull)" stroke="#D4AF6A" stroke-opacity=".35" stroke-width=".8"/>
+              <!-- Ватерлінія золота -->
+              <path d="M-3,42 L168,42" stroke="#D4AF6A" stroke-width="1.2" opacity=".8"/>
+              <!-- Напис AI-КОВЧЕГ -->
+              <text x="55" y="34" font-family="Playfair Display, serif" font-size="11" font-weight="700" fill="#E9CC86" letter-spacing="2">AI-КОВЧЕГ</text>
+
+              <!-- Верхня палуба / надбудова -->
+              <path d="M30,18 L42,2 L130,2 L142,18 Z" fill="url(#hull)" stroke="#D4AF6A" stroke-opacity=".25" stroke-width=".6"/>
+              <!-- Вікна надбудови -->
+              <rect x="50" y="6" width="14" height="8" rx="1.5" fill="url(#window)" opacity=".9"/>
+              <rect x="68" y="6" width="14" height="8" rx="1.5" fill="url(#window)" opacity=".75"/>
+              <rect x="86" y="6" width="14" height="8" rx="1.5" fill="url(#window)" opacity=".9"/>
+              <rect x="104" y="6" width="14" height="8" rx="1.5" fill="url(#window)" opacity=".75"/>
+
+              <!-- Антена / щогла -->
+              <line x1="86" y1="2" x2="86" y2="-22" stroke="#D4AF6A" stroke-width="1.2"/>
+              <circle cx="86" cy="-23" r="2" fill="#E9CC86">
+                <animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/>
+              </circle>
+
+              <!-- Носові вогні -->
+              <circle cx="168" cy="30" r="2" fill="#E9CC86">
+                <animate attributeName="opacity" values=".4;1;.4" dur="2.6s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+          </svg>
+          <span class="orb-caption">Курс прокладено · AI-Ковчег</span>
+        </div>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="num">8</div><div class="lbl">тижнів</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">AI-асистенти</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">лендинги</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl">квіз + ресерч</div></div>
+      <div class="stat"><div class="num">∞</div><div class="lbl">нового мислення</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="ornament" aria-hidden="true"><span class="ln"></span><span class="di"><span class="small">✦</span> МАРШРУТ <span class="small">✦</span></span><span class="ln"></span></div>
+
+<!-- A -> B -->
+<section id="story">
+  <div class="sec-num">A→B</div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Точка А → Точка Б</span>
+      <h2>Я не «спробувала ШІ». Я <span class="it">змінила те, як думаю</span>.</h2>
+      <p>Найчесніша частина цього виступу. Ось ким я зайшла на курс — і ким вийшла.</p>
+    </div>
+    <div class="ab">
+      <div class="ab-col a reveal">
+        <span class="ab-tag">Було · Точка А</span>
+        <h3>Користувачка чату</h3>
+        <ul>
+          <li><span class="ic">◦</span> Сперечалася з GPT, ніби з опонентом, і дратувалася.</li>
+          <li><span class="ic">◦</span> Вірила: «не бачу сенсу в AI для коучингу».</li>
+          <li><span class="ic">◦</span> Рутина зі створення файлів клієнтів забирала години.</li>
+          <li><span class="ic">◦</span> Бачила AI як ще одну вкладку в браузері.</li>
+        </ul>
+      </div>
+      <div class="ab-arrow reveal">→</div>
+      <div class="ab-col b reveal">
+        <span class="ab-tag">Стало · Точка Б</span>
+        <h3>Архітекторка системи</h3>
+        <ul>
+          <li><span class="ic">✦</span> Зібрала двох AI-асистентів — <b>Hermes</b> і <b>Watson</b> — що живуть на сервері 24/7.</li>
+          <li><span class="ic">✦</span> Веду сесії, а замітки, транскрипт і звіти робить Watson — без мене.</li>
+          <li><span class="ic">✦</span> Стартую два нові проєкти сама, без команди.</li>
+          <li><span class="ic">✦</span> Мислю системою, а не окремими запитами.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="ab-quote reveal">«Зрушилася з мертвої точки — від <b>„не знаю як і не бачу сенсу в AI для коучингу“</b> до <b>„стартую два нові проєкти сама, без команди“</b>.»</p>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Deep Research <span class="dot">✦</span> Промпт-інжиніринг <span class="dot">✦</span> <b>Hermes</b> <span class="dot">✦</span> Цифрові асистенти <span class="dot">✦</span> Вайб-кодинг <span class="dot">✦</span> <b>Watson</b> <span class="dot">✦</span> Telegram-агенти <span class="dot">✦</span> Оркестратор <span class="dot">✦</span></span>
+    <span>Deep Research <span class="dot">✦</span> Промпт-інжиніринг <span class="dot">✦</span> <b>Hermes</b> <span class="dot">✦</span> Цифрові асистенти <span class="dot">✦</span> Вайб-кодинг <span class="dot">✦</span> <b>Watson</b> <span class="dot">✦</span> Telegram-агенти <span class="dot">✦</span> Оркестратор <span class="dot">✦</span></span>
+  </div>
+</div>
+
+<!-- TRY interactive -->
+<section id="try" style="padding-top:50px">
+  <div class="wrap">
+    <div class="reveal" style="border:1px solid rgba(212,175,106,.32);border-radius:24px;overflow:hidden;background:linear-gradient(135deg,rgba(27,94,67,.40),rgba(14,33,24,.55));position:relative">
+      <div style="padding:34px clamp(24px,4vw,44px) 6px;position:relative;z-index:1">
+        <span style="font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600">Спробуй наживо</span>
+        <h2 style="font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.6vw,40px);line-height:1.12;margin-top:14px;letter-spacing:-.01em">Не просто подивись — <span style="font-style:italic;color:var(--gold-bright)">пройди й відчуй</span>.</h2>
+        <p style="margin-top:12px;color:var(--cream-dim);font-size:16px;max-width:60ch">Два інтерактивні продукти, які я зробила за курс. Відкрий, дай відповіді — і побачиш, як це працює зсередини.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;padding:22px clamp(24px,4vw,44px) clamp(28px,4vw,44px);position:relative;z-index:1">
+        <div style="border:1px solid var(--line);border-radius:18px;padding:28px;background:rgba(10,20,15,.45);display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);font-weight:700">▶ Квіз · 3 хвилини</span>
+          <h3 style="font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.2">Діагностика мислення</h3>
+          <p style="color:var(--cream-dim);font-size:14.5px;line-height:1.6;flex:1">Пройди короткий тест — і отримай дзеркало своїх патернів мислення. Саме з нього починається розмова в коучингу.</p>
+          <a href="https://quiz-unlocking.vercel.app/" target="_blank" rel="noopener" class="btn btn-gold" style="align-self:flex-start;margin-top:6px">Пройти квіз <span class="arrow">→</span></a>
+        </div>
+        <div style="border:1px solid var(--line);border-radius:18px;padding:28px;background:rgba(10,20,15,.45);display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);font-weight:700">▶ Лендинг + тест</span>
+          <h3 style="font-family:var(--serif);font-size:24px;font-weight:600;line-height:1.2">«Версія 2.0»</h3>
+          <p style="color:var(--cream-dim);font-size:14.5px;line-height:1.6;flex:1">Наскільки ти близький до себе майбутнього? Пройди тест на лендингу й отримай запрошення на діагностику.</p>
+          <a href="https://landing-version2-ira-ank-s-projects.vercel.app/" target="_blank" rel="noopener" class="btn btn-gold" style="align-self:flex-start;margin-top:6px">Відкрити лендинг <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider wrap" style="background:none">
+
+<div class="ornament" aria-hidden="true"><span class="ln"></span><span class="di"><span class="small">✦</span> НАВИЧКИ <span class="small">✦</span></span><span class="ln"></span></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-num left">06</div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Що я тепер вмію</span>
+      <h2>П'ять навичок, яких не було <span class="it">вісім тижнів тому</span>.</h2>
+      <p>Не теорія з відео — те, що я вже застосовую у своїй практиці коуча.</p>
+    </div>
+    <div class="skills">
+      <div class="skill reveal">
+        <div class="si">⌕</div>
+        <h3>Дослідити будь-яку бізнес-гіпотезу</h3>
+        <p>Методологія Deep Research: ринок, аудиторія, болі — і чесний висновок «1 аудиторія + 1 біль + 1 продукт». ДНК клієнта на основі даних, а не здогадок.</p>
+      </div>
+      <div class="skill reveal">
+        <div class="si">◈</div>
+        <h3>AI-мислення та промпт-інжиніринг</h3>
+        <p>Формула сильного промпта, декомпозиція, Chain of Thought. Я тепер «кентавр» у парі з ШІ, а не людина, що сперечається з чатом.</p>
+      </div>
+      <div class="skill reveal">
+        <div class="si">⊹</div>
+        <h3>Будувати цифрових асистентів</h3>
+        <p>Власні AI-помічники під конкретні процеси через Claude Projects, Custom GPT і Skills. Проєктую від задачі (JTBD), а не від технології.</p>
+      </div>
+      <div class="skill reveal">
+        <div class="si">❖</div>
+        <h3>Вайб-кодинг живих продуктів</h3>
+        <p>Від ідеї до сайту через діалог у Visual Studio: лендинги, квізи, форми, деплой на Vercel. Те, що раніше робилося тижнями.</p>
+      </div>
+      <div class="skill reveal">
+        <div class="si">⚙</div>
+        <h3>Автоматизувати через AI-агентів</h3>
+        <p>Hermes і Watson з реальними діями: Telegram, транскрипція, файли, звіти, розклад за cron. Рутина переходить на агентів — я лишаюся з тим, що вмію тільки я.</p>
+      </div>
+      <div class="skill reveal" style="background:linear-gradient(150deg,rgba(27,94,67,.35),rgba(14,33,24,.4));border-color:rgba(212,175,106,.3)">
+        <div class="si" style="background:rgba(212,175,106,.2)">♪</div>
+        <h3>І головне — диригувати оркестром</h3>
+        <p>Звести агентів, інструменти й мислення в одну злагоджену систему. Зараз будую оркестратор над Hermes і Watson — і це буквально моя суперсила: чути фальш і налаштовувати ціле.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament" aria-hidden="true"><span class="ln"></span><span class="di"><span class="small">✦</span> ПРОДУКТИ <span class="small">✦</span></span><span class="ln"></span></div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="sec-num left">II</div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Що я побудувала</span>
+      <h2>Не домашки заради галочки — <span class="it">продукти, які живуть</span>.</h2>
+      <p>Двоє AI-асистентів на сервері, чотири лендинги, квіз, особистий ресерч і нова методологія. Деякі вже відкриті в інтернеті — заходь і дивись.</p>
+    </div>
+    <div class="products">
+
+      <div class="prod reveal">
+        <div class="glow"></div>
+        <span class="ptag">AI-асистент · коучинг</span>
+        <h3>Watson — асистент-коуч</h3>
+        <p>Мій професійний бізнес-асистент. Після сесії він робить замітки, транскрибує запис, розкладає по папках і формує звіт — сам, без мене. І надсилає його мені в Telegram-бот <b>24/7, навіть коли мій компʼютер вимкнено</b>.</p>
+      </div>
+
+      <div class="prod reveal">
+        <span class="ptag">AI-асистент · особистий</span>
+        <h3>Hermes</h3>
+        <p>Мій перший проєкт і особистий асистент. Живе на віддаленому сервері, спілкуюся з ним через Telegram у телефоні. Присилає мій розклад і новини.</p>
+      </div>
+
+      <div class="prod reveal">
+        <span class="ptag">У роботі</span>
+        <h3>Оркестратор</h3>
+        <p>Зводжу Hermes і Watson в один оркестр: два різні асистенти — один диригент. Те, що я роблю з людьми, тепер вибудовую між агентами.</p>
+      </div>
+
+      <div class="prod reveal">
+        <span class="ptag">Живий продукт</span>
+        <h3>Квіз «Діагностика мислення»</h3>
+        <p>Інтерактивний тест, що показує патерни мислення — лід-магніт у моєму підході.</p>
+        <a class="plink" href="https://quiz-unlocking.vercel.app/" target="_blank" rel="noopener">Відкрити квіз <span class="arrow">→</span></a>
+      </div>
+
+      <div class="prod reveal">
+        <span class="ptag">Лендинг</span>
+        <h3>«Версія 2.0»</h3>
+        <p>«Наскільки ви близькі до себе майбутнього?» Лендинг із вбудованим тестом і запрошенням на діагностику.</p>
+        <a class="plink" href="https://landing-version2-ira-ank-s-projects.vercel.app/" target="_blank" rel="noopener">Відкрити <span class="arrow">→</span></a>
+      </div>
+
+      <div class="prod reveal">
+        <span class="ptag">Лендинг</span>
+        <h3>«Коуч мислення»</h3>
+        <p>Чому інтелект блокує наступний масштаб: ситуація → хибне рішення → справжня причина.</p>
+        <a class="plink" href="landings/landing_ira_ank.html" target="_blank" rel="noopener">Відкрити <span class="arrow">→</span></a>
+      </div>
+
+      <div class="prod reveal">
+        <span class="ptag">Лендинг</span>
+        <h3>Діагностика для підприємців</h3>
+        <p>Безкоштовна діагностика мислення: «ви знаєте, що робити — але щось не дає».</p>
+        <a class="plink" href="landings/ira_ank_v5.html" target="_blank" rel="noopener">Відкрити <span class="arrow">→</span></a>
+      </div>
+
+      <div class="prod reveal">
+        <span class="ptag">Особистий ресерч</span>
+        <h3>Аналіз ринку квартир</h3>
+        <p>Поки вчилася на курсі — застосувала Deep Research у житті: зробила добірку 2-кімнатних на Лісовому масиві (Травень 2026) з джерелами, цінами, категоризацією. <b>Інструмент став способом жити інакше</b>.</p>
+        <a class="plink" href="landings/lisovyi-masyv-2k.html" target="_blank" rel="noopener">Відкрити добірку <span class="arrow">→</span></a>
+      </div>
+
+      <div class="prod reveal">
+        <span class="ptag">У роботі</span>
+        <h3>Нова методологія</h3>
+        <p>Окремий проєкт: оформлюю власну коучингову методологію — тепер маю інструменти, щоб дослідити й упакувати її.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Технологічний стек</span>
+      <h2>Інструменти, якими я тепер <span class="it">володію</span>.</h2>
+      <p>Не «чула про них» — використовую в реальних задачах.</p>
+    </div>
+    <div class="stack">
+      <div class="stack-grp reveal">
+        <div class="gh">Мозок системи</div>
+        <div class="tools"><span class="tool">Claude</span><span class="tool">ChatGPT</span><span class="tool">Gemini</span><span class="tool">Grok</span></div>
+      </div>
+      <div class="stack-grp reveal">
+        <div class="gh">Дослідження та пам'ять</div>
+        <div class="tools"><span class="tool">Perplexity Pro</span><span class="tool">NotebookLM</span><span class="tool">Comet Browser</span></div>
+      </div>
+      <div class="stack-grp reveal">
+        <div class="gh">Збірка продуктів</div>
+        <div class="tools"><span class="tool">Claude Code</span><span class="tool">Visual Studio</span><span class="tool">GitHub</span><span class="tool">Vercel</span><span class="tool">Supabase</span></div>
+      </div>
+      <div class="stack-grp reveal">
+        <div class="gh">Агенти та автоматизація</div>
+        <div class="tools"><span class="tool">Telegram-бот</span><span class="tool">Cron</span><span class="tool">DigitalOcean</span><span class="tool">Nano Banana Pro</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONEST -->
+<section id="honest">
+  <div class="wrap">
+    <div class="particle-orb reveal" id="particleOrb" style="max-width:280px;aspect-ratio:1/1;margin:0 auto 24px;display:block">
+      <canvas id="orbCanvas"></canvas>
+    </div>
+    <div class="honest reveal">
+      <span class="kicker">Чесний підсумок</span>
+      <h2>Грошей за ці вісім тижнів я ще не заробила — але зрушилася з мертвої точки.</h2>
+      <blockquote>Від <em>«AI не підходить для коучингу»</em> до <em>«я так багато можу — і треба ще час, щоб виспатися»</em>. <b>Гроші — наслідок. Вони попереду.</b></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL / AUTHOR -->
+<section class="final" id="final">
+  <div class="wrap">
+    <div class="author reveal">
+      <div class="photo"><img src="images/ira-portrait.jpg" alt="Іра Анк — коуч мислення"></div>
+      <div class="who">
+        <div class="nm">Іра Анк</div>
+        <div class="role">Коуч мислення в методі Unlocking · випускниця AI-Ковчега</div>
+        <p class="camertone">«Я чую фальш там, де інші чують норму — і налаштовую оркестр так, щоб <b>кожен інструмент звучав наповну</b>.»</p>
+        <div class="final-cta">
+          <a href="#products" class="btn btn-gold">Подивитися продукти <span class="arrow">→</span></a>
+          <a href="https://quiz-unlocking.vercel.app/" target="_blank" rel="noopener" class="btn btn-ghost">Пройти мій квіз</a>
+          <a href="https://www.instagram.com/iraank_coach/" target="_blank" rel="noopener" class="btn btn-ghost"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Мій блог</a>
+        </div>
+      </div>
+    </div>
+    <p class="thanks reveal">Дякую <span class="hl">AI-Ковчегу</span> — за поштовх, знання й віру, що це можливо. Вісім тижнів тому я не уявляла, що скажу це: <span class="hl">ШІ не замінить мене як коуча — він дає мені більше часу, фокусу й уваги, а отже й більше впливу. А значить — я можу бути ще кориснішою своїм клієнтам</span>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div class="l">Іра Анк <span>·</span> Unlocking-коуч <span>·</span> AI-Ковчег 2026</div>
+    <div>Зроблено власноруч у парі з Claude.</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay = Math.min(i%6,5)*60 + 'ms';
+    io.observe(el);
+  });
+
+  // Kovcheg Scene — анімація хвиль, покачування яхти, пінний слід
+  (function(){
+    const scene = document.getElementById('kovchegScene');
+    const boat = document.getElementById('boat');
+    const wake = document.getElementById('wake');
+    if(!scene || !boat || !wake) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const waves = [
+      { el: document.getElementById('wave1'), y: 340, amp: 5, freq: 0.025, speed: 0.6 },
+      { el: document.getElementById('wave2'), y: 370, amp: 4, freq: 0.022, speed: -0.4 },
+      { el: document.getElementById('wave3'), y: 410, amp: 3, freq: 0.018, speed: 0.5 },
+      { el: document.getElementById('wave4'), y: 455, amp: 2.5, freq: 0.015, speed: -0.3 }
+    ];
+
+    function buildWavePath(y, amp, freq, phase){
+      let d = `M0,${y + Math.sin(phase) * amp}`;
+      for(let x = 10; x <= 520; x += 10){
+        d += ` L${x},${(y + Math.sin(x*freq + phase) * amp).toFixed(2)}`;
+      }
+      return d;
+    }
+
+    // Пінні бульбашки слід
+    const bubbles = [];
+    function spawnBubble(){
+      const b = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      const startX = 175 + (Math.random()-.5)*8; // хвіст яхти (boat translate.x=180, корпус -5..172)
+      const startY = 343 + Math.random()*4;
+      b.setAttribute('cx', startX);
+      b.setAttribute('cy', startY);
+      b.setAttribute('r', 1.5 + Math.random()*2.5);
+      b.setAttribute('fill','url(#foam)');
+      b.setAttribute('opacity','0.85');
+      wake.appendChild(b);
+      bubbles.push({el:b, x:startX, y:startY, vx:-0.6 - Math.random()*0.8, vy:(Math.random()-.5)*0.15, life:1, size:parseFloat(b.getAttribute('r'))});
+    }
+
+    let t = 0, last = performance.now(), bubbleAcc = 0;
+    function frame(now){
+      const dt = Math.min(50,(now-last)); last = now;
+      t += dt/1000;
+
+      // хвилі
+      waves.forEach(w => {
+        w.el.setAttribute('d', buildWavePath(w.y, w.amp, w.freq, t * w.speed));
+      });
+
+      // покачування + крен яхти
+      const bob = Math.sin(t*1.4) * 3;
+      const tilt = Math.sin(t*1.1) * 1.2;
+      boat.setAttribute('transform', `translate(180 ${305+bob}) rotate(${tilt} 80 30)`);
+
+      // пінні бульбашки
+      bubbleAcc += dt;
+      if(bubbleAcc > 55){
+        bubbleAcc = 0;
+        spawnBubble(); spawnBubble();
+      }
+      for(let i = bubbles.length - 1; i >= 0; i--){
+        const b = bubbles[i];
+        b.x += b.vx;
+        b.y += b.vy;
+        b.life -= 0.012;
+        if(b.life <= 0){
+          wake.removeChild(b.el);
+          bubbles.splice(i,1);
+        } else {
+          b.el.setAttribute('cx', b.x);
+          b.el.setAttribute('cy', b.y);
+          b.el.setAttribute('opacity', (b.life * 0.85).toFixed(3));
+          b.el.setAttribute('r', (b.size * (0.6 + b.life*0.4)).toFixed(2));
+        }
+      }
+
+      if(!reduced) requestAnimationFrame(frame);
+    }
+    if(reduced){
+      // статика: один кадр
+      waves.forEach(w => w.el.setAttribute('d', buildWavePath(w.y, w.amp*0.4, w.freq, 0)));
+    } else {
+      requestAnimationFrame(frame);
+    }
+  })();
+
+  // Particle Orb — біля «Чесного підсумку»
+  (function(){
+    const canvas = document.getElementById('orbCanvas');
+    const wrap = document.getElementById('particleOrb');
+    if(!canvas || !wrap) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ctx = canvas.getContext('2d');
+
+    let W=0, H=0, DPR=Math.min(window.devicePixelRatio||1, 2);
+    function resize(){
+      const r = wrap.getBoundingClientRect();
+      W = r.width; H = r.height;
+      canvas.width = W*DPR; canvas.height = H*DPR;
+      canvas.style.width = W+'px'; canvas.style.height = H+'px';
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Fibonacci sphere distribution
+    const N = 1400; // частинок на сфері
+    const orbR = 0.42; // частка від min(W,H)
+    const particles = [];
+    const golden = Math.PI * (3 - Math.sqrt(5));
+    for(let i=0; i<N; i++){
+      const y = 1 - (i/(N-1))*2;
+      const r = Math.sqrt(1-y*y);
+      const th = golden*i;
+      const x = Math.cos(th)*r;
+      const z = Math.sin(th)*r;
+      // палітра: смарагд, золото, кремовий
+      const roll = Math.random();
+      let color;
+      if(roll < 0.55) color = [46,139,107];      // emerald-bright
+      else if(roll < 0.85) color = [233,204,134]; // gold-bright
+      else color = [239,231,214];                  // cream (білі іскри)
+      particles.push({
+        x, y, z,
+        size: 0.6 + Math.random()*1.6,
+        col: color,
+        // shed: невелика частина «обсипається» вправо-вниз
+        shed: Math.random() < 0.08,
+        sx:0, sy:0, sz:0, life: Math.random()
+      });
+    }
+
+    let rotY = 0, rotX = 0;
+    let targetMX = 0, targetMY = 0, mx = 0, my = 0;
+    window.addEventListener('pointermove', (e)=>{
+      const r = wrap.getBoundingClientRect();
+      targetMX = ((e.clientX - r.left - r.width/2)/r.width) * 2;
+      targetMY = ((e.clientY - r.top - r.height/2)/r.height) * 2;
+    }, {passive:true});
+
+    let last = performance.now();
+    function frame(now){
+      const dt = Math.min(0.05, (now-last)/1000); last = now;
+      mx += (targetMX - mx) * 0.06;
+      my += (targetMY - my) * 0.06;
+      rotY += dt * 0.18 + mx * 0.012;
+      rotX = -my * 0.5;
+
+      // фон — м'який смарагдовий glow знизу-зліва, золотий зверху-справа
+      ctx.clearRect(0,0,W,H);
+      const cx = W/2, cy = H/2;
+      const R = Math.min(W,H) * orbR;
+
+      // ambient glow
+      const g1 = ctx.createRadialGradient(cx-R*0.3, cy+R*0.4, 0, cx, cy, R*1.8);
+      g1.addColorStop(0,'rgba(27,94,67,0.45)');
+      g1.addColorStop(0.5,'rgba(15,61,46,0.18)');
+      g1.addColorStop(1,'rgba(10,20,15,0)');
+      ctx.fillStyle = g1; ctx.fillRect(0,0,W,H);
+
+      const g2 = ctx.createRadialGradient(cx+R*0.5, cy-R*0.4, 0, cx+R*0.5, cy-R*0.4, R*1.2);
+      g2.addColorStop(0,'rgba(212,175,106,0.18)');
+      g2.addColorStop(1,'rgba(212,175,106,0)');
+      ctx.fillStyle = g2; ctx.fillRect(0,0,W,H);
+
+      const cosY=Math.cos(rotY), sinY=Math.sin(rotY);
+      const cosX=Math.cos(rotX), sinX=Math.sin(rotX);
+
+      // сортуємо by z для коректного шарування
+      const arr = particles.map(p=>{
+        // rotate Y
+        let x = p.x*cosY + p.z*sinY;
+        let z = -p.x*sinY + p.z*cosY;
+        let y = p.y;
+        // rotate X
+        const y2 = y*cosX - z*sinX;
+        const z2 = y*sinX + z*cosX;
+        // shed offset
+        if(p.shed){
+          p.life += dt * 0.35;
+          if(p.life > 1) p.life = 0;
+          const t = p.life;
+          x += t * 0.9;       // обсипання вправо
+          y += t * 0.55;      // і трохи вниз
+          z += Math.sin(t*6) * 0.05;
+        }
+        const persp = 2.2 / (2.2 - (z2));
+        return {
+          px: cx + x*R*persp,
+          py: cy + y2*R*persp,
+          z: z2,
+          size: p.size * persp,
+          col: p.col,
+          shed: p.shed,
+          life: p.life
+        };
+      }).sort((a,b)=> a.z - b.z);
+
+      // малюємо
+      for(let i=0; i<arr.length; i++){
+        const p = arr[i];
+        const depth = (p.z + 1) / 2; // 0..1
+        const alpha = 0.25 + depth*0.75;
+        const fade = p.shed ? (1 - p.life) : 1;
+        const a = alpha * fade;
+        const [r,g,b] = p.col;
+
+        // glow halo для золотих/кремових
+        if(p.col[0] > 200){
+          ctx.fillStyle = `rgba(${r},${g},${b},${a*0.18})`;
+          ctx.beginPath(); ctx.arc(p.px, p.py, p.size*4, 0, Math.PI*2); ctx.fill();
+        }
+        ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
+        ctx.beginPath(); ctx.arc(p.px, p.py, p.size, 0, Math.PI*2); ctx.fill();
+      }
+
+      if(!reduced) requestAnimationFrame(frame);
+    }
+    if(reduced){
+      // один статичний кадр
+      requestAnimationFrame(frame);
+    } else {
+      requestAnimationFrame(frame);
+    }
+  })();
+
+  // Neon tubes cursor effect — у брендовій палітрі (смарагд + золото)
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js')
+      .then(m => {
+        const TubesCursor = m.default;
+        const canvas = document.getElementById('neon-canvas');
+        if(!canvas) return;
+        TubesCursor(canvas, {
+          tubes: {
+            colors: ['#1B5E43', '#D4AF6A', '#2E8B6B'],
+            lights: {
+              intensity: 180,
+              colors: ['#E9CC86', '#2E8B6B', '#D4AF6A', '#1B5E43']
+            }
+          }
+        });
+      })
+      .catch(e => console.warn('Neon cursor failed to load:', e));
+  }
+</script>
+</body>
+</html>

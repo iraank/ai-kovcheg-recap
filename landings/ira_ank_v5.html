@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Іра Анк — Діагностика мислення для підприємців</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emerald: #1B5E4B;
+    --emerald-light: #2D7A63;
+    --emerald-dark: #0F3D31;
+    --gold: #C4A44E;
+    --gold-light: #D4B96A;
+    --cream: #FDFBF7;
+    --text: #1A1A1A;
+    --text-secondary: #4A4A4A;
+    --text-light: #6B6B6B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--emerald-dark);
+    color: white;
+    padding: 60px 24px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at center, rgba(196,164,78,0.05) 0%, transparent 60%);
+    animation: pulse 8s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:0.8} }
+  .hero-content { position: relative; max-width: 720px; }
+  .hero-tagline {
+    font-size: clamp(12px, 1.6vw, 14px);
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px; font-weight: 500;
+  }
+  .hero-method {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    margin-bottom: 32px; line-height: 1.7;
+  }
+  .hero-method a { color: rgba(255,255,255,0.5); text-decoration: underline; text-underline-offset: 3px; }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 600; line-height: 1.15; margin-bottom: 24px;
+  }
+  .hero-subtitle {
+    font-size: clamp(16px, 2vw, 19px);
+    font-weight: 300; color: rgba(255,255,255,0.7);
+    margin-bottom: 40px; max-width: 560px;
+    margin-left: auto; margin-right: auto; line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-block; padding: 18px 48px;
+    background: var(--gold); color: var(--emerald-dark);
+    text-decoration: none; font-weight: 600;
+    font-size: 15px; letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+  .cta-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(196,164,78,0.3);
+  }
+  .hero-note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.35); }
+
+  /* SECTIONS */
+  section { padding: 100px 24px; }
+  .container { max-width: 720px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 600; margin-bottom: 28px;
+    color: var(--emerald-dark); line-height: 1.3;
+  }
+
+  /* PAIN */
+  .pain { background: white; }
+  .pain-list { list-style: none; margin-top: 24px; }
+  .pain-list li {
+    padding: 18px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 17px; color: var(--text-secondary);
+    padding-left: 24px; position: relative; line-height: 1.7;
+  }
+  .pain-list li::before {
+    content: ''; position: absolute; left: 0; top: 26px;
+    width: 8px; height: 8px; background: var(--gold); border-radius: 50%;
+  }
+
+  /* DARK SECTION */
+  .dark-section { background: #1a1a1a; color: white; }
+  .dark-section .section-label { color: var(--gold); }
+  .dark-section .section-title { color: white; }
+
+  /* DELIVERABLE PREVIEW */
+  .deliverable { background: var(--cream); }
+  .deliverable-preview {
+    margin-top: 48px; border: 2px solid rgba(196,164,78,0.3);
+    background: white; overflow: hidden;
+  }
+  .deliverable-header {
+    background: var(--emerald-dark); color: white;
+    padding: 20px 28px; font-size: 13px;
+    letter-spacing: 2px; text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .deliverable-header span { color: var(--gold); }
+  .deliverable-body { padding: 32px 28px; }
+  .deliverable-row {
+    display: grid; grid-template-columns: 32px 1fr;
+    gap: 16px; padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    align-items: start;
+  }
+  .deliverable-row:last-child { border-bottom: none; }
+  .deliverable-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700; color: var(--gold);
+    line-height: 1;
+  }
+  .deliverable-item-title {
+    font-weight: 600; font-size: 15px;
+    color: var(--emerald-dark); margin-bottom: 4px;
+  }
+  .deliverable-item-text {
+    font-size: 14px; color: var(--text-light); line-height: 1.7;
+  }
+  .deliverable-footer {
+    background: rgba(196,164,78,0.08);
+    padding: 20px 28px; text-align: center;
+    font-size: 14px; color: var(--text-secondary);
+    border-top: 1px solid rgba(196,164,78,0.15);
+  }
+  .deliverable-footer strong { color: var(--emerald-dark); }
+
+  /* QUOTE */
+  .quote-block {
+    padding: 32px;
+    border-left: 3px solid var(--gold);
+    background: rgba(196,164,78,0.06);
+    margin: 40px 0;
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-style: italic;
+    color: var(--emerald-dark); line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .quote-author { font-size: 13px; color: var(--text-light); }
+  .quote-author a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* DIFFERENCE */
+  .difference { background: white; }
+  .diff-items { margin-top: 32px; }
+  .diff-item {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 24px; padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    align-items: baseline;
+  }
+  @media (max-width: 500px) { .diff-item { grid-template-columns: 1fr; gap: 4px; } }
+  .diff-label {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-light); font-weight: 500;
+  }
+  .diff-text { font-size: 16px; color: var(--text-secondary); }
+  .diff-item.highlight {
+    border-bottom: none; margin-top: 8px;
+    padding: 24px; background: var(--emerald-dark); color: white;
+  }
+  .diff-item.highlight .diff-label { color: var(--gold); }
+  .diff-item.highlight .diff-text { color: rgba(255,255,255,0.85); font-size: 17px; }
+
+  /* ABOUT */
+  .about { background: var(--cream); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px; margin-top: 40px;
+  }
+  @media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; gap: 16px; } }
+  .about-card {
+    text-align: center; padding: 28px 16px;
+    background: white; border: 1px solid rgba(0,0,0,0.06);
+  }
+  .about-card-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 700; color: var(--gold); margin-bottom: 8px;
+  }
+  .about-card-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; color: var(--emerald-dark); }
+  .about-card-text { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  /* CTA SECTIONS */
+  .cta-mid { background: white; text-align: center; padding: 80px 24px; }
+  .cta-mid .section-title { margin-bottom: 16px; }
+  .cta-mid-sub { font-size: 16px; color: var(--text-light); margin-bottom: 32px; }
+
+  .cta-final {
+    background: var(--emerald-dark); color: white;
+    text-align: center; padding: 120px 24px;
+  }
+  .cta-final .section-title { color: white; margin-bottom: 16px; }
+  .cta-final-sub {
+    font-size: 17px; color: rgba(255,255,255,0.65);
+    margin-bottom: 40px; font-weight: 300;
+    max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7;
+  }
+  .cta-note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.35); }
+
+  /* BONUSES */
+  .bonus-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px; margin-top: 32px;
+  }
+  @media (max-width: 600px) { .bonus-grid { grid-template-columns: 1fr; } }
+  .bonus-card {
+    padding: 24px; background: rgba(196,164,78,0.06);
+    border: 1px solid rgba(196,164,78,0.15);
+  }
+  .bonus-card-title {
+    font-weight: 600; font-size: 15px; color: var(--emerald-dark);
+    margin-bottom: 8px;
+  }
+  .bonus-card-text { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+  .bonus-tag {
+    display: inline-block; font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--gold); font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  footer {
+    background: var(--emerald-dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 40px 24px; text-align: center;
+    color: rgba(255,255,255,0.4); font-size: 13px;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-tagline">Коучінг для підприємців</p>
+    <p class="hero-method">за авторською методикою Unlocking від <a href="https://www.instagram.com/alexandr_isaev_/" target="_blank">Олександра Ісаєва</a>, коуча мільйонерів</p>
+    <h1 class="hero-title">Безкоштовна діагностика мислення для підприємців</h1>
+    <p class="hero-subtitle">30 хвилин. Ви отримаєте персональний розбір вашої ситуації, побачите приховану причину гальмування і отримаєте алгоритм дій — під ваш конкретний запит.</p>
+    <a href="https://t.me/ira_ank_coach" target="_blank" class="cta-btn">ЗАПИСАТИСЬ НА ДІАГНОСТИКУ</a>
+    <p class="hero-note">Безкоштовно · Онлайн · Індивідуально</p>
+  </div>
+</section>
+
+<!-- ═══════ PAIN ═══════ -->
+<section class="pain">
+  <div class="container fade-in">
+    <p class="section-label">Знайоме?</p>
+    <h2 class="section-title">Ви знаєте, що робити. Але щось не дає.</h2>
+    <ul class="pain-list">
+      <li>Продажі є, валовий дохід росте — а прибуток ні</li>
+      <li>Бачите, як хтось з меншим досвідом виходить на інший рівень — і не розумієте чому</li>
+      <li>Є рішення, яке відкладаєте місяцями — і знаєте, що це коштує грошей</li>
+      <li>Делегувати не виходить, хоча розумієте, що давно пора</li>
+      <li>Немає людини, з якою можна поговорити чесно — не як з другом, а з тим, хто має компетенцію побачити те, чого ви самі не бачите</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════ KEY BARRIER ═══════ -->
+<section class="dark-section">
+  <div class="container fade-in">
+    <p class="section-label">Чому старі інструменти не працюють</p>
+    <h2 class="section-title">Проблема не в стратегії, не в людях і не в ринку</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:32px;">
+      Ви вже пробували: нову стратегію, кращих людей, ментора, навчання, відпочинок. Логічно — але не працює. Бо це все на рівні симптомів.
+    </p>
+    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:40px;">
+      Справжня причина вашого гальмування — <strong style="color:white;">у способі думати і приймати рішення.</strong> Те, куди ви самі ніколи не подивитесь, бо не знаєте, що туди треба дивитись.
+    </p>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,32px);font-weight:600;color:white;text-align:center;margin-bottom:16px;">
+      Результат = Потенціал − Втручання
+    </div>
+    <p style="font-size:15px;color:rgba(255,255,255,0.45);text-align:center;max-width:480px;margin:0 auto;">
+      Не додаю знань чи порад. Знаходжу і прибираю те, що блокує потенціал, який у вас вже є.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ WHAT YOU GET — VISUALIZATION ═══════ -->
+<section class="deliverable">
+  <div class="container fade-in">
+    <p class="section-label">Що ви отримаєте за 30 хвилин</p>
+    <h2 class="section-title">Персональна діагностика мислення — приклад результату</h2>
+    <p style="font-size:17px;color:var(--text-secondary);line-height:1.8;">
+      Це не загальна розмова «про життя». Ви отримаєте конкретний розбір вашої ситуації за методикою Unlocking. Ось що буде на виході:
+    </p>
+
+    <!-- DELIVERABLE MOCK-UP -->
+    <div class="deliverable-preview">
+      <div class="deliverable-header">
+        <span>Персональний розбір</span>
+        <span style="font-size:11px;color:rgba(255,255,255,0.4);">30 хв · Індивідуально</span>
+      </div>
+      <div class="deliverable-body">
+        <div class="deliverable-row">
+          <div class="deliverable-num">1</div>
+          <div>
+            <div class="deliverable-item-title">Карта вашої ситуації</div>
+            <div class="deliverable-item-text">Ви озвучуєте запит так, як бачите. Я задаю точні питання, які підсвічують те, що за межами вашого розуміння проблеми.</div>
+          </div>
+        </div>
+        <div class="deliverable-row">
+          <div class="deliverable-num">2</div>
+          <div>
+            <div class="deliverable-item-title">Прихована причина гальмування</div>
+            <div class="deliverable-item-text">Що саме тримає вас на поточному рівні. Чому попередні спроби (стратегії, ментори, навчання) не дали стабільного результату.</div>
+          </div>
+        </div>
+        <div class="deliverable-row">
+          <div class="deliverable-num">3</div>
+          <div>
+            <div class="deliverable-item-title">Персональний алгоритм дій</div>
+            <div class="deliverable-item-text">Конкретні кроки під ваш запит: що змінити, в якій послідовності, яку динаміку очікувати.</div>
+          </div>
+        </div>
+        <div class="deliverable-row">
+          <div class="deliverable-num">4</div>
+          <div>
+            <div class="deliverable-item-title">Чесна відповідь</div>
+            <div class="deliverable-item-text">Чи можу я бути корисною у вашій ситуації — і якщо так, то як саме. Якщо ні — скажу прямо.</div>
+          </div>
+        </div>
+      </div>
+      <div class="deliverable-footer">
+        Зазвичай такий розбір коштує <strong>від 150 €</strong> за сесію. Перша діагностика — <strong>безкоштовно</strong>.
+      </div>
+    </div>
+
+    <!-- BONUSES -->
+    <p class="section-label" style="margin-top:48px;">Бонуси після діагностики</p>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-tag">Одразу після розмови</div>
+        <div class="bonus-card-title">Резюме вашого розбору</div>
+        <div class="bonus-card-text">Отримаєте в Telegram стислий документ з ключовими знахідками і вашим персональним алгоритмом дій.</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-tag">Протягом 24 годин</div>
+        <div class="bonus-card-title">Розширена діагностика</div>
+        <div class="bonus-card-text">Детальний аналіз вашої ситуації через призму методики Unlocking — з рекомендаціями і прогнозом динаміки.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA MID ═══════ -->
+<section class="cta-mid">
+  <div class="container">
+    <h2 class="section-title">Побачте, що саме вас тримає</h2>
+    <p class="cta-mid-sub">30 хвилин · Безкоштовно · Онлайн</p>
+    <a href="https://t.me/ira_ank_coach" target="_blank" class="cta-btn">ЗАПИСАТИСЬ</a>
+  </div>
+</section>
+
+<!-- ═══════ CREDIBILITY ═══════ -->
+<section class="dark-section">
+  <div class="container fade-in">
+    <p class="section-label">Методика</p>
+    <h2 class="section-title">Unlocking — не ще одне навчання</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:20px;">
+      Авторська методика <a href="https://www.instagram.com/alexandr_isaev_/" target="_blank" style="color:var(--gold-light);text-decoration:underline;text-underline-offset:3px;">Олександра Ісаєва</a>, яку обирають засновники бізнесів з мільйонними оборотами. Не додає знань — знаходить і прибирає те, що блокує ваш потенціал.
+    </p>
+
+    <div style="padding:28px 32px;border:1px solid rgba(196,164,78,0.2);background:rgba(255,255,255,0.03);margin:32px 0;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:12px;">
+        «Будь-якому підприємцю для досягнення своїх цілей потрібні три складові: навчання, нетворкінг і коучинг — як інструмент для створення треку особистої стратегії руху.»
+      </p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.35);">Олександр Ісаєв</p>
+    </div>
+
+    <p style="font-size:14px;color:rgba(255,255,255,0.45);line-height:1.8;">
+      Олександр Висоцький про коучинг:<br>
+      <a href="https://www.youtube.com/watch?v=lciNAN1BCO0" target="_blank" style="color:var(--gold-light);text-decoration:underline;text-underline-offset:3px;">Про роботу з коучем для підприємця →</a><br>
+      <a href="https://www.youtube.com/watch?v=xcWakmpXztE" target="_blank" style="color:var(--gold-light);text-decoration:underline;text-underline-offset:3px;">Як коучинг допомагає в бізнесі →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ DIFFERENCE ═══════ -->
+<section class="difference">
+  <div class="container fade-in">
+    <p class="section-label">Чому це інше</p>
+    <h2 class="section-title">Я не роблю те, що ви вже пробували</h2>
+    <div class="diff-items">
+      <div class="diff-item">
+        <span class="diff-label">Ментори</span>
+        <span class="diff-text">Дають свій спосіб. Але чужий спосіб рідко стає вашим.</span>
+      </div>
+      <div class="diff-item">
+        <span class="diff-label">Навчання</span>
+        <span class="diff-text">Додають знання. Але ви вже знаєте достатньо.</span>
+      </div>
+      <div class="diff-item">
+        <span class="diff-label">Психотерапія</span>
+        <span class="diff-text">Працює з минулим. Я працюю з тим, що ви створюєте зараз.</span>
+      </div>
+      <div class="diff-item highlight">
+        <span class="diff-label">Unlocking</span>
+        <span class="diff-text">Знаходить вашу власну формулу і прибирає те, що заважає їй працювати.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about">
+  <div class="container fade-in">
+    <p class="section-label">Хто проводить діагностику</p>
+    <h2 class="section-title">Іра Анк</h2>
+    <p style="font-size:17px;color:var(--text-secondary);line-height:1.8;margin-bottom:12px;">
+      Сертифікований коуч в авторській методиці <a href="https://www.instagram.com/alexandr_isaev_/" target="_blank" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">Олександра Ісаєва</a>. Працюю один на один з підприємцями і топ-менеджерами.
+    </p>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-card-icon">MD</div>
+        <div class="about-card-title">Медицина</div>
+        <div class="about-card-text">Лікар за освітою. Бачу першопричини, а не симптоми.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">BIZ</div>
+        <div class="about-card-title">Бізнес</div>
+        <div class="about-card-text">Від рекрутера до адмін. директора. Знаю бізнес зсередини: оргструктуру, ролі, операційку.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">UL</div>
+        <div class="about-card-title">Unlocking</div>
+        <div class="about-card-text">Сертифікований коуч. Методика Ісаєва. Обираю, з ким працювати.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ QUALIFICATION ═══════ -->
+<section style="background:var(--cream);padding:80px 24px;">
+  <div class="container fade-in" style="text-align:center;">
+    <p class="section-label">Для кого</p>
+    <h2 class="section-title" style="margin-bottom:16px;">Діагностика для вас, якщо:</h2>
+    <p style="font-size:17px;color:var(--text-secondary);line-height:1.8;max-width:520px;margin:0 auto;">
+      Ви підприємець або C-level, у якого є результати — але є відчуття, що граєте не на повну. Готові побачити справжню причину і діяти.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ CTA FINAL ═══════ -->
+<section class="cta-final">
+  <div class="container">
+    <p class="section-label">Наступний крок</p>
+    <h2 class="section-title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,36px);color:white;">Запишіться на безкоштовну діагностику</h2>
+    <p class="cta-final-sub">
+      30 хвилин. Персональний розбір вашої ситуації. Алгоритм дій під ваш запит. Резюме розбору — в Telegram одразу після розмови.
+    </p>
+    <a href="https://t.me/ira_ank_coach" target="_blank" class="cta-btn" style="font-size:16px;padding:20px 56px;">ЗАПИСАТИСЯ</a>
+    <p class="cta-note">Напишіть «діагностика» в Telegram · Безкоштовно · Онлайн · Будь-яка країна</p>
+  </div>
+</section>
+
+<footer>
+  <p>Іра Анк · Коуч для підприємців · <a href="https://t.me/ira_ank_coach" target="_blank">Telegram</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
